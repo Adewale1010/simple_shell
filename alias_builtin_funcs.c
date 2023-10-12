@@ -11,7 +11,7 @@ void _print_alias(alias_t *alias);
  * @front: A double pointer to the begining of the args
  *
  * Return: If an error occurs - -1.
- * 	Otherwise - 0.
+ *	Otherwise - 0.
  */
 
 int _shellby_alias(char **args, char __attribute__((__unused__)) **front)
@@ -152,6 +152,5 @@ char **_replace_aliases(char **args)
 			temp = temp->next;
 		}
 	}
-	
 	return (args);
 }
