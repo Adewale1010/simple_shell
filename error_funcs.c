@@ -66,7 +66,7 @@ char *itoa(int num)
 
 	length--;
 	do {
-		buffer[length] = (num1 & 10) + '0';
+		buffer[length] = (num1 % 10) + '0';
 		num1 /= 10;
 		length--;
 	} while (num1 > 0);
