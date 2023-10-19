@@ -63,7 +63,7 @@ char *_get_location(char *command);
 list_t *_get_path_dir(char *path);
 int _execute(char **args, char **front);
 void _free_list(list_t *head);
-int *itoa(int num);
+char *itoa(int num);
 
 /* Input Helpers */
 void _handle_line(char **line, ssize_t read);
@@ -71,7 +71,7 @@ void _replace_variable(char **args, int *exe_retr);
 int _check_args(char **args);
 int _handle_args(int *exe_retr);
 char *_get_args(char *line, int *exe_retr);
-int _call_args(char *args, char **front, int *exe_retr);
+int _call_args(char **args, char **front, int *exe_retr);
 int _run_args(char **args, char **front, int *exe_retr);
 void _free_args(char **args, char **front);
 char **_replace_aliases(char **args);
@@ -94,7 +94,7 @@ int _shellby_help(char **args, char __attribute__((__unused__)) **front);
 int _shellby_alias(char **args, char __attribute__((__unused__)) **front);
 int _shellby_env(char **args, char __attribute__((__unused__)) **front);
 int _shellby_unsetenv(char **args, char __attribute__((__unused__)) **fornt);
-int _shellby_setenv(char **args, char __attribute__((unused__)) **front);
+int _shellby_setenv(char **args, char __attribute__((__unused__)) **front);
 
 /* Builtin helpers */
 void free_env(void);

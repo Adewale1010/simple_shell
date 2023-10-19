@@ -1,7 +1,7 @@
 #include "shell.h"
 
 int _shellby_alias(char **args, char __attribute__((__unused__)) **front);
-void _set_alias(char **var_name, char *value);
+void _set_alias(char *var_name, char *value);
 void _print_alias(alias_t *alias);
 
 /**
@@ -25,14 +25,14 @@ int _shellby_alias(char **args, char __attribute__((__unused__)) **front)
 		while (temp)
 		{
 			_print_alias(temp);
-			temp = temp->next;
+			temp = temp->nxt;
 		}
 		return (rem);
 	}
 	for (indx = 0; args[indx]; indx++)
 	{
 		temp = aliases;
-		value = _strchr(agrs[indx], '=');
+		value = _strchr(args[indx], '=');
 		if (!value)
 		{
 			while (temp)
@@ -42,13 +42,13 @@ int _shellby_alias(char **args, char __attribute__((__unused__)) **front)
 					_print_alias(temp);
 					break;
 				}
-				temp = temp->next;
+				temp = temp->nxt;
 			}
 			if (!temp)
 				rem = _create_error(args + indx, 1);
 		}
 		else
-			_set_alias(agrs[indx], value);
+			_set_alias(args[indx], value);
 	}
 	return (rem);
 }
@@ -86,7 +86,7 @@ void _set_alias(char *var_name, char *value)
 			temp->value = new_value;
 			break;
 		}
-		temp = temp->next;
+		temp = temp->nxt;
 	}
 	if (!temp)
 		_add_alias_end(&aliases, var_name, new_value);
@@ -140,7 +140,7 @@ char **_replace_aliases(char **args)
 				new_value = malloc(sizeof(char) * (_strlen(temp->value) + 1));
 				if (!new_value)
 				{
-					free_args(args, args);
+					_free_args(args, args);
 					return (NULL);
 				}
 				_strcpy(new_value, temp->value);
@@ -149,7 +149,7 @@ char **_replace_aliases(char **args)
 				indx--;
 				break;
 			}
-			temp = temp->next;
+			temp = temp->nxt;
 		}
 	}
 	return (args);

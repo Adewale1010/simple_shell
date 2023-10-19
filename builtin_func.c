@@ -59,7 +59,7 @@ int _shellby_exit(char **args, char **front)
 			indx = 1;
 			length_of_int++;
 		}
-		for (; args[0][indx]; i++)
+		for (; args[0][indx]; indx++)
 		{
 			if (indx <= length_of_int && args[0][indx] >= '0' && args[0][indx] <= '9')
 				num = (num * 10) + (args[0][indx] - '0');
@@ -72,10 +72,10 @@ int _shellby_exit(char **args, char **front)
 		return (-3);
 	}
 	if (num > max - 1)
-		return (_create_error(--agrs, 2));
+		return (_create_error(--args, 2));
 	args -= 1;
 	_free_args(args, front);
-	_free_env();
+	free_env();
 	_free_alias_list(aliases);
 	exit(num);
 }

@@ -24,7 +24,7 @@ char *_error_env(char **args)
 
 	args--;
 	length = _strlen(name) + _strlen(history_str) + _strlen(args[0]) + 45;
-	error + malloc(sizeof(char) * (length + 1));
+	error = malloc(sizeof(char) * (length + 1));
 	if (!error)
 	{
 		free(history_str);
@@ -84,7 +84,7 @@ char *_error_2_syntax(char **args)
 		return (NULL);
 	}
 
-	length = _strlen(name) + _strlen(history_str) + strlen(args[0]) + 33;
+	length = _strlen(name) + _strlen(history_str) + _strlen(args[0]) + 33;
 	error = malloc(sizeof(char) * (length + 1));
 	if (!error)
 	{

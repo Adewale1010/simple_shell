@@ -11,7 +11,7 @@ ssize_t _getline(char **lineptr, size_t *l, FILE *stream);
  * @new_size: The size of the new memory block in bytes
  */
 
-void re_alloc(void *ptr, unsigned int old_size, unsigned int new_size)
+void *re_alloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	unsigned int indx;
 	void *mem;

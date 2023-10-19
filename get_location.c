@@ -44,7 +44,7 @@ char *_get_location(char *command)
 			return (temp);
 		}
 
-		dirs = dirs->next;
+		dirs = dirs->nxt;
 		free(temp);
 	}
 
@@ -87,11 +87,11 @@ char *_fill_path_dir(char *path)
 		}
 	}
 	path_dup = malloc(sizeof(char) * (length + 1));
-	if (!path_copy)
+	if (!path_dup)
 	{
 		return (NULL);
 	}
-	path_copy[0] = '\0';
+	path_dup[0] = '\0';
 	for (indx = 0; path[indx]; indx++)
 	{
 		if (path[indx] == ':')
@@ -113,7 +113,7 @@ char *_fill_path_dir(char *path)
 		}
 		else
 		{
-			_strcat(path_dup, &path[indx], 1);
+			_strncat(path_dup, &path[indx], 1);
 		}
 	}
 	return (path_dup);

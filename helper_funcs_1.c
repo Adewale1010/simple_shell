@@ -48,7 +48,7 @@ char *_get_pid(void)
  * @front: A double poinet to the beginning of args
  */
 
-void _free_args(char **args, char **front);
+void _free_args(char **args, char **front)
 {
 	size_t indx;
 
@@ -85,7 +85,7 @@ char *_get_env_value(char *start, int len)
 
 	var_addy = _getenv(var);
 	free(var);
-	if (var_addr)
+	if (var_addy)
 	{
 		temp = *var_addy;
 		while (*temp != '=')
@@ -101,7 +101,7 @@ char *_get_env_value(char *start, int len)
 }
 
 /**
- * replace_variable - Handles variable replacement
+ * _replace_variable - Handles variable replacement
  * @line: A double pointer containing the command and arguments
  * @exe_retr: A pointer to the return value of the last executed
  * command
@@ -111,7 +111,7 @@ char *_get_env_value(char *start, int len)
  * proceeded by $ with their corresponding value
  */
 
-void replace_variable(char **line, int *exe_retr)
+void _replace_variable(char **line, int *exe_retr)
 {
 	int m, n = 0, length;
 	char *substitute = NULL, *old_line = NULL, *new_line;
@@ -141,7 +141,7 @@ void replace_variable(char **line, int *exe_retr)
 				length = n - (m + 1);
 				substitute = _get_env_value(&old_line[m + 1], length);
 			}
-			new_line = malloc(j + _strlen(substitute)
+			new_line = malloc(m + _strlen(substitute)
 					+ _strlen(&old_line[n]) + 1);
 			if (!line)
 			{

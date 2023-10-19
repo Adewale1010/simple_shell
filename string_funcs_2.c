@@ -71,7 +71,7 @@ int _strspn(char *s, char *accept)
 
 	while (*s)
 	{
-		for (indx = 0; accept[indx]; indx;)
+		for (indx = 0; accept[indx]; indx)
 		{
 			if (*s == accept[indx])
 			{

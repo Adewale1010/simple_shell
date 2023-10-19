@@ -20,7 +20,7 @@ char *_strcpy(char *dest, const char *src)
 
 	for (indx = 0; src[indx] != '\0'; indx++)
 	{
-		dest[indx] = serc[indx];
+		dest[indx] = src[indx];
 	}
 	dest[indx] = '\0';
 	return (dest);
@@ -40,7 +40,7 @@ char *_strcat(char *dest, const char *src)
 	const char *srcTmp;
 
 	destTmp =  dest;
-	srcTemp = src;
+	srcTmp = src;
 
 	while (*destTmp != '\0')
 	{

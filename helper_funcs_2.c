@@ -41,14 +41,14 @@ ssize_t _get_new_length(char *line)
 					new_len += 2;
 					continue;
 				}
-				else if (line[indx - 1] == ';' && next != ' ')
+				else if (line[indx - 1] == ';' && nxt != ' ')
 				{
 					new_len += 2;
 					continue;
 				}
 				if (line[indx - 1] != ' ')
 					new_len++;
-				if (next != ' ')
+				if (nxt != ' ')
 					new_len++;
 			}
 			else
@@ -60,7 +60,7 @@ ssize_t _get_new_length(char *line)
 		{
 			if (indx != 0 && line[indx - 1] != ' ')
 				new_len++;
-			if (nxt != ' ' && next != ';')
+			if (nxt != ' ' && nxt != ';')
 				new_len++;
 		}
 		new_len++;

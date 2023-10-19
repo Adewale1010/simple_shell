@@ -2,7 +2,7 @@
 
 int _shellby_env(char **args, char __attribute__((__unused__)) **front);
 int _shellby_unsetenv(char **args, char __attribute__((__unused__)) **fornt);
-int _shellby_setenv(char **args, char __attribute__((unused__)) **front);
+int _shellby_setenv(char **args, char __attribute__((__unused__)) **front);
 
 /**
  * _shellby_env - Prints the current environment
@@ -97,7 +97,7 @@ int _shellby_unsetenv(char **args, char __attribute__((__unused__)) **front)
 
 int _shellby_setenv(char **args, char __attribute__((__unused__)) **front)
 {
-	char **env_var = NULL, **new_environ, **new_value;
+	char **env_var = NULL, **new_environ, *new_value;
 	int indx;
 	size_t size;
 

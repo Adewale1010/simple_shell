@@ -89,7 +89,7 @@ list_t *_add_node_end(list_t **head, char *dir)
  * Otherwise - a pointer to the new node
  */
 
-alias_t *_add_alias_end(alias **head, char *name, char *value)
+alias_t *_add_alias_end(alias_t **head, char *name, char *value)
 {
 	alias_t *new_node = malloc(sizeof(alias_t));
 	alias_t *last;
@@ -101,7 +101,7 @@ alias_t *_add_alias_end(alias **head, char *name, char *value)
 
 	new_node->nxt = NULL;
 	new_node->name = malloc(sizeof(char) * (_strlen(name) + 1));
-	if (!new node->name)
+	if (!new_node->name)
 	{
 		free(new_node);
 		return (NULL);
@@ -112,7 +112,7 @@ alias_t *_add_alias_end(alias **head, char *name, char *value)
 	if (*head)
 	{
 		last = *head;
-		while (last->next != NULL)
+		while (last->nxt != NULL)
 			last = last->nxt;
 		last->nxt = new_node;
 	}

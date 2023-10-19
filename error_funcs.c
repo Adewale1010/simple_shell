@@ -1,7 +1,7 @@
 #include "shell.h"
 
 int _num_length(int num);
-int *itoa(int num);
+char *itoa(int num);
 int _create_error(char **args, int err);
 
 /**
@@ -18,7 +18,7 @@ int _num_length(int num)
 
 	if (num < 0)
 	{
-		len++;
+		length++;
 		num1 = num * -1;
 	}
 	else
@@ -40,7 +40,6 @@ int _num_length(int num)
  *
  * Return: The converted string
  */
-
 char *itoa(int num)
 {
 	int length = _num_length(num);

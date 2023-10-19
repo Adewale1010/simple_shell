@@ -3,7 +3,7 @@
 int _check_args(char **args);
 int _handle_args(int *exe_retr);
 char *_get_args(char *line, int *exe_retr);
-int _call_args(char *args, char **front, int *exe_retr);
+int _call_args(char **args, char **front, int *exe_retr);
 int _run_args(char **args, char **front, int *exe_retr);
 
 /**
@@ -51,7 +51,7 @@ int _check_args(char **args)
 int _handle_args(int *exe_retr)
 {
 	int rem = 0, indx;
-	char **args, *line = NULL, *front;
+	char **args, *line = NULL, **front;
 
 	line = _get_args(line, exe_retr);
 	if (!line)
@@ -129,7 +129,7 @@ char *_get_args(char *line, int *exe_retr)
 	}
 
 	line[read - 1] =  '\0';
-	replace_variable(&line, exe_retr);
+	_replace_variable(&line, exe_retr);
 	_handle_line(&line, read);
 
 	return (line);
@@ -158,7 +158,7 @@ int _call_args(char **args, char **front, int *exe_retr)
 		if (_strncmp(args[indx], "||", 2) == 0)
 		{
 			free(args[indx]);
-			args[index] = NULL;
+			args[indx] = NULL;
 			args = _replace_aliases(args);
 			rem = _run_args(args, front, exe_retr);
 			if (*exe_retr != 0)

@@ -23,7 +23,7 @@ int _cant_open(char *file_path)
 	}
 
 	length = _strlen(name) + _strlen(history_str) + _strlen(file_path) + 16;
-	error = malloc(sizeof(char) * (len + 1));
+	error = malloc(sizeof(char) * (length + 1));
 	if (!error)
 	{
 		free(history_str);
@@ -54,7 +54,7 @@ int _cant_open(char *file_path)
  * Otherwise the return value of the last command ran
  */
 
-int _proc_file_commands(char *file_path, int exe_retr)
+int _proc_file_commands(char *file_path, int *exe_retr)
 {
 	int rem;
 	char buffer[120];
@@ -64,7 +64,8 @@ int _proc_file_commands(char *file_path, int exe_retr)
 	ssize_t file, bb_read, indx;
 
 	hist = 0;
-	file = open(file_path, 0_RDONLY);
+	file = open(file_path, O_RDONLY);
+	
 	if (file == -1)
 	{
 		*exe_retr = _cant_open(file_path);
@@ -102,8 +103,8 @@ int _proc_file_commands(char *file_path, int exe_retr)
 			}
 		}
 	}
-	replace_variable(&line, exe_retr);
-	_hanle_line(&line, line_size);
+	_replace_variable(&line, exe_retr);
+	_handle_line(&line, line_size);
 	args = _strtok(line, " ");
 	free(line);
 	if (!args)
