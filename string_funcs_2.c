@@ -71,7 +71,7 @@ int _strspn(char *s, char *accept)
 
 	while (*s)
 	{
-		for (indx = 0; accept[indx]; indx)
+		for (indx = 0; accept[indx]; indx++)
 		{
 			if (*s == accept[indx])
 			{
@@ -105,7 +105,7 @@ int _strncmp(const char *s1, const char *s2, size_t n)
 		{
 			return (s1[indx] - s2[indx]);
 		}
-		else if (s1[indx] - s2[indx])
+		else if (s1[indx] < s2[indx])
 		{
 			return (s1[indx] - s2[indx]);
 		}
