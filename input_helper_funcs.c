@@ -128,7 +128,7 @@ char *_get_args(char *line, int *exe_retr)
 		return (_get_args(line, exe_retr));
 	}
 
-	line[read - 1] =  '\0';
+	line[read - 1] = '\0';
 	_replace_variable(&line, exe_retr);
 	_handle_line(&line, read);
 
