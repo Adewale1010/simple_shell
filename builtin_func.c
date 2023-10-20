@@ -22,7 +22,7 @@ int (*_get_builtin(char *command))(char **args, char **front)
 		{ "cd", _shellby_cd },
 		{ "alias", _shellby_alias },
 		{ "help", _shellby_help },
-		{ NULL, NULL}
+		{ NULL, NULL }
 	};
 	int indx;
 
@@ -104,7 +104,7 @@ int _shellby_cd(char **args, char __attribute__((__unused__)) **front)
 	{
 		if (*(args[0]) == '-' || _strcmp(args[0], "--") == 0)
 		{
-			if ((args[0][1] == '_' && args[0][2] == '\0') ||
+			if ((args[0][1] == '-' && args[0][2] == '\0') ||
 					args[0][1] == '\0')
 			{
 				if (_getenv("OLDPWD") != NULL)

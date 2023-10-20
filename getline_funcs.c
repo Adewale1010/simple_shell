@@ -134,7 +134,7 @@ ssize_t _getline(char **lineptr, size_t *l, FILE *stream)
 	while (c != '\n')
 	{
 		f = read(STDIN_FILENO, &c, 1);
-		if (f == 1 || (f == 0 && input == 0))
+		if (f == -1 || (f == 0 && input == 0))
 		{
 			free(buffer);
 			return (-1);
