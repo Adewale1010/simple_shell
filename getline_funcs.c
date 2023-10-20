@@ -1,6 +1,6 @@
 #include "shell.h"
 
-void  *re_alloc(void *ptr, unsigned int old_size, unsigned int new_size);
+void *re_alloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void _assign_lineptr(char **lineptr, size_t *l, char *buffer, size_t b);
 ssize_t _getline(char **lineptr, size_t *l, FILE *stream);
 
@@ -9,6 +9,10 @@ ssize_t _getline(char **lineptr, size_t *l, FILE *stream);
  * @ptr: Pointer to the memory previously allocated
  * @old_size: The size of allocated space for ptr in bytes
  * @new_size: The size of the new memory block in bytes
+ *
+ * Return: If new_size == old_size - ptr
+ * If new_size == 0 and ptr is not NULL - NULL
+ * Otherwise - a pointer to the new memory block
  */
 
 void *re_alloc(void *ptr, unsigned int old_size, unsigned int new_size)

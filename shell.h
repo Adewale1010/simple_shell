@@ -14,8 +14,11 @@
 #define END_OF_FILE -2
 #define EXIT -3
 
+/* Global environment */
 extern char **environ;
+/* Global program name */
 char *name;
+/* Global history counter */
 int hist;
 
 /**
@@ -57,7 +60,7 @@ alias_t *aliases;
 
 /* Main Helpers */
 ssize_t _getline(char **lineptr, size_t *l, FILE *stream);
-void  *re_alloc(void *ptr, unsigned int old_size, unsigned int new_size);
+void *re_alloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char **_strtok(char *line, char *delimited);
 char *_get_location(char *command);
 list_t *_get_path_dir(char *path);
